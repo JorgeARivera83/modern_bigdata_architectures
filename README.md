@@ -12,6 +12,24 @@ Se incluyen diagramas de la arquitectura actual y la recomendada.
 En este apartado se recomienda un patrón arquitectónico para una empresa de logística que necesita combinar procesamiento en tiempo real con reportes históricos.
 La propuesta justifica la elección de una arquitectura basada en requerimientos de latencia, precisión, consistencia, mantenimiento y unificación de capas de datos.
 
+Como arquitecto de datos, ¿qué patrón arquitectónico recomendarías: ¿Lambda, Kappa o Delta? Justifica tu elección según:
+
+De acuerdo a las condiciones del caso comparativo recomendaría la arquitectura Kappa.
+
+a. Las características de latencia, precisión y consistencia requeridas.
+
+Esta arquitectura está diseñada para procesamiento en tiempo real, lo que permite hacer seguimiento a los movimientos de los vehículos de forma inmediata. Los datos históricos pueden almacenarse en un sistema distribuido sin necesidad de duplicación de pipelines.
+La arquitectura Kappa proporciona baja latencia para análisis en tiempo real a diferencia de Lambda que, aunque permite las dos tareas puede verse afectada la precisión y la latencia. En cuanto al almacenamiento centralizado para consultas históricas la arquitectura Kappa cumple con esta tarea a diferencia de la arquitectura Delta la cual no es óptima para procesamiento inmediato de eventos.
+
+b. La complejidad operativa del sistema y el mantenimiento del código.
+
+De las 3 arquitecturas analizadas, la arquitectura Kappa ofrece menor complejidad operativa y por ende permite optimizar el mantenimiento y los costos de funcionamiento. Lo anterior debido a que cuenta con un único flujo de datos, reduciendo la gestión de código. 
+
+c. La posibilidad de unificar almacenamiento o mantener diferentes capas.
+
+Con la arquitectura Kappa se puede unificar almacenamiento y procesamiento en una sola fuente de datos a diferencia de las otras arquitecturas que requieren duplicidad de almacenamiento y por su estructura tienen diferentes capas.
+
+
 ### 3. Aplicación del enfoque Data Mesh:
 Se aborda un caso en el que una empresa con más de 100 equipos busca evitar cuellos de botella en el equipo central de datos. 
 Se presenta una propuesta basada en el enfoque Data Mesh, explicando cómo cada uno de sus principios (como ownership y data as a product) ayudan a resolver el problema. 
