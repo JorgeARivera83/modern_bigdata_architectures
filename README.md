@@ -29,6 +29,36 @@ c. La posibilidad de unificar almacenamiento o mantener diferentes capas.
 
 Con la arquitectura Kappa se puede unificar almacenamiento y procesamiento en una sola fuente de datos a diferencia de las otras arquitecturas que requieren duplicidad de almacenamiento y por su estructura tienen diferentes capas.
 
+d. Las ventajas que tu propuesta ofrece frente a las otras dos arquitecturas.
+
+Ventajas:
+- Sin duplicación de pipelines
+- Reduce la carga operativa
+- Procesamiento y precisión en reportes históricos
+- Arquitectura sencilla
+Lo anterior facilita el cumplimiento de los requerimientos de una empresa de logística internacional para gestionar sus datos.
+
+
+e. Una breve descripción de cómo implementarías la solución, mencionando las capas o componentes principales.
+
+1. Ingesta de datos
+	Uso de Apache Kafka para capturar eventos de ubicación GPS y tráfico en tiempo real.
+	Integración con sensores IoT en los vehículos.
+
+2. Procesamiento de datos
+	Apache Flink o Spark Streaming** para análisis en tiempo real
+	Cálculo de métricas como velocidad, rutas óptimas y congestión de tráfico.
+
+3. Almacenamiento
+	Apache Cassandra o PostgreSQL** para almacenamiento persistente y consultas de reportes históricos.
+
+4. Dashboard y reporting
+	Grafana o Tableau para la visualización de KPIs de desempeño semanal y mensual.
+
+5. Gestión de datos históricos
+	Acceso a registros históricos sin necesidad de duplicación, aprovechando el almacenamiento distribuido.
+
+
 
 ### 3. Aplicación del enfoque Data Mesh:
 Se aborda un caso en el que una empresa con más de 100 equipos busca evitar cuellos de botella en el equipo central de datos. 
